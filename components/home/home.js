@@ -19,3 +19,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+var daysElement = document.getElementById('days');
+var hoursElement = document.getElementById('hours');
+var minutesElement = document.getElementById('minutes');
+var secondsElement = document.getElementById('seconds');
+
+function countdowntimer(){
+
+    const countdownDate = new Date('Dec 25, 2024 00:00:00').getTime();
+    
+    const seconds = 1000;
+    const minutes = seconds * 60;
+    const hours = minutes * 60;
+    const days = hours * 24;
+
+    const interval = setInterval(() => {
+    
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+    
+    daysElement.innerText = formatnumber(Math.floor(distance / days));
+    hoursElement.innerText = formatnumber(Math.floor((distance % days) / hours));
+    minutesElement.innerText = formatnumber(Math.floor((distance % hours) / minutes));
+    secondsElement.innerText = formatnumber(Math.floor((distance % minutes) / seconds));
+},1000);
+}
+function formatnumber(number){
+    return number < 10 ? `0${number}` : number;
+
+}
+
+countdowntimer();
+
+

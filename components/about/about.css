@@ -1,143 +1,216 @@
-/* components/about/about.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
+
+/* Add these styles at the beginning of your CSS file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#about-content {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2rem 0;
+}
+
 :root {
-    --primary-color: #FF6B6B;
-    --secondary-color: #4ECDC4;
-    --text-color: #2C3E50;
-    --background-color: #F7F9FC;
-    --gradient-start: #FF6B6B;
-    --gradient-end: #FF8E53;
+    --primary-color: #FF6F61;
+    --secondary-color: #6B5B95;
+    --text-color: #333;
+    --background-color: #F9F9F9;
+    --stat-bg-color: #f0f0f0;
 }
 
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+body {
+    font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
     max-width: 1200px;
-    margin: 4rem auto;
-    padding: 3rem;
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-    border-radius: 30px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
-.stats-container::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-    transform: rotate(30deg);
+h1, h2, .section-title {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    align-items: center;
+}
+
+.text-content, .image-content {
+    flex: 1;
+}
+
+.about-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    margin: 3rem 0;
+    padding: 2rem 0;
+    background-color: var(--stat-bg-color);
+    border-radius: 10px;
 }
 
 .stat-item {
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.stat-item:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.icon-wrapper {
-    margin-bottom: 1rem;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 50%;
-    padding: 1rem;
+    padding: 1.5rem;
     transition: all 0.3s ease;
 }
 
-.stat-item:hover .icon-wrapper {
-    transform: scale(1.1) rotate(10deg);
-    background: rgba(255, 255, 255, 0.3);
+.stat-item:hover {
+    transform: scale(1.05);
 }
 
-.stat-value {
-    font-size: 2.5rem;
+.stat-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+}
+
+.stat-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.stat-number {
+    font-size: 5rem;
     font-weight: bold;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #FF4500; /* Shade of orange-red */
     margin-bottom: 0.5rem;
-    font-family: 'Poppins', sans-serif;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.stat-number::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FF4500;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover .stat-number {
+    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+}
+
+.stat-item:hover .stat-number::after {
+    transform: scaleX(1);
 }
 
 .stat-label {
-    font-size: 1rem;
-    color: #ffffff;
-    opacity: 0.9;
-    font-weight: 500;
+    font-size: 1.4rem;
+    color: var(--text-color);
+    font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.activities-list {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.stat-item {
-    animation: fadeInUp 0.8s ease-out;
-    animation-fill-mode: both;
+.activities-list li {
+    margin-bottom: 0.5rem;
 }
 
-.stat-item:nth-child(1) { animation-delay: 0.2s; }
-.stat-item:nth-child(2) { animation-delay: 0.4s; }
-.stat-item:nth-child(3) { animation-delay: 0.6s; }
-.stat-item:nth-child(4) { animation-delay: 0.8s; }
-
-@media (max-width: 1024px) {
-    .stats-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 2rem;
-    }
+.activity-title {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1rem;
 }
 
-@media (max-width: 640px) {
-    .stats-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 1.5rem;
-    }
-
-    .stat-value {
-        font-size: 2.25rem;
-    }
-
-    .stat-label {
-        font-size: 0.9rem;
-    }
+.achievements-section ul {
+    list-style-type: none;
+    padding-left: 0;
 }
 
-.founder-section {
-    opacity: 0;
-    transform: translateY(20px);
+.achievements-section li {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
-.founder-info, .founder-image {
-    opacity: 0;
-    transform: translateY(20px);
+.achievements-section li::before {
+    content: "✓";
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+.highlight {
+    background-color: rgba(255, 111, 97, 0.2);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
 }
 
 @media (max-width: 768px) {
-    .founder-section {
-        text-align: center;
+    .content-wrapper {
+        flex-direction: column;
     }
+    
+    .stats-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .stat-item {
+        width: 100%;
+    }
+}
+
+.about-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
