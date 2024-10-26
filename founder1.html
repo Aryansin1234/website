@@ -11,25 +11,25 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4; /* Clean light grey background */
+            background-color: #f4f4f4;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            padding: 1.5rem;
             color: #333;
         }
 
         .container {
             max-width: 1200px;
             background: #ffffff;
-            padding: 2rem;
+            padding: 1rem; /* Reduced padding */
             border-radius: 15px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         }
 
         .founder-name {
-            font-size: 2.5rem;
+            font-size: 2.2rem; /* Slightly reduced for better fit */
             font-weight: 700;
             color: #333;
             margin-bottom: 0.5rem;
@@ -37,14 +37,14 @@
         }
 
         .founder-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem; /* Slightly reduced */
             font-weight: 600;
             color: #FF6B6B;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem; /* Slightly reduced */
             font-weight: 600;
             color: #FF6B6B;
             margin-top: 1.5rem;
@@ -52,24 +52,24 @@
         }
 
         .content {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem; /* Reduced for better readability */
+            line-height: 1.6;
             color: #555;
         }
 
         .founder-image {
             width: 100%;
-            height: auto-fit;
+            max-width: 600px; /* Set a maximum width */
+            height: auto;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transform: translateY(50px);
         }
 
-        /* Card-style for text */
         .card {
             background: #fafafa;
-            padding: 1.5rem;
+            padding: 1rem; /* Reduced padding */
             border-radius: 10px;
             border: 2px solid #FF6B6B;
             transition: transform 0.3s, box-shadow 0.3s;
@@ -80,18 +80,17 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Link hover */
         a {
             color: #FF6B6B;
             text-decoration: none;
             transition: color 0.3s ease;
+            word-wrap: break-word; /* Ensure long links break */
         }
 
         a:hover {
             color: #ff4a4a;
         }
 
-        /* Section hover effect */
         .section-title:hover {
             color: #ff4a4a;
         }
@@ -100,7 +99,6 @@
             color: #ff4a4a;
         }
 
-        /* List styling */
         ul.list-disc {
             padding-left: 1.5rem;
         }
@@ -109,21 +107,20 @@
             padding-bottom: 0.5rem;
         }
 
-        /* New styles for the navbar */
         .navbar {
             background-color: #FF6B6B;
-            padding: 1rem;
+            padding: 0.5rem; /* Reduced padding */
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease; /* Added background color transition */
+            transition: background-color 0.3s ease;
         }
 
         .navbar:hover {
-            background-color: #ff4a4a; /* Change background color on hover */
+            background-color: #ff4a4a;
         }
 
         .navbar-content {
@@ -136,29 +133,61 @@
 
         .nav-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.5rem; /* Reduced gap */
         }
 
         .nav-link {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .nav-link:hover {
             color: #f0f0f0;
-            transform: scale(1.1); /* Scale up the link on hover */
+            transform: scale(1.1);
         }
 
         .logo {
-            height: 60px;
+            height: 50px; /* Adjusted size */
             width: auto;
         }
 
-        /* Adjust the body padding to account for the fixed navbar */
         body {
-            padding-top: 92px;
+            padding-top: 72px; /* Adjusted for smaller navbar */
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .founder-name {
+                font-size: 1.8rem;
+            }
+
+            .founder-title, .section-title {
+                font-size: 1.1rem;
+            }
+
+            .content {
+                font-size: 0.9rem;
+            }
+
+            .navbar-content {
+                flex-direction: row; /* Ensure items stay in a row */
+                align-items: center;
+            }
+
+            .nav-links {
+                flex-direction: row; /* Ensure links stay in a row */
+                gap: 0.5rem;
+            }
+
+            .container {
+                padding: 0.5rem; /* Further reduced padding for mobile */
+            }
+
+            .founder-image {
+                max-width: 100%; /* Ensure image fits within mobile view */
+            }
         }
     </style>
 </head>

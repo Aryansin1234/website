@@ -28,17 +28,17 @@ logo.addEventListener('mouseleave', () => {
 window.addEventListener('scroll', () => {
   if (window.scrollY > 50) {
     navbar.classList.add('scrolled');
-    navbar.style.padding = '0.3rem 2rem';
-    gsap.to('.logo-img', { height: 60, duration: 0.3 });
+    gsap.to('.logo-img', { height: 50, duration: 0.3 }); // Adjusted height for scrolled state
+    gsap.to('.logo-text', { fontSize: '0.8rem', duration: 0.3 }); // Adjusted font size for scrolled state
     if (window.innerWidth > 768) {
       gsap.to('.nav-button', { fontSize: '0.9rem', padding: '0.4rem 0.7rem', duration: 0.3 });
     }
   } else {
     navbar.classList.remove('scrolled');
-    navbar.style.padding = '0.5rem 2rem';
-    gsap.to('.logo-img', { height: 80, duration: 0.3 });
+    gsap.to('.logo-img', { height: 80, duration: 0.3 }); // Original height
+    gsap.to('.logo-text', { fontSize: '1.2rem', duration: 0.3 }); // Original font size
     if (window.innerWidth > 768) {
-      gsap.to('.nav-button', { fontSize: '1rem', padding: '0.5rem 0.8rem', duration: 0.3 });
+      gsap.to('.nav-button', { fontSize: '1.1rem', padding: '0.5rem 0.8rem', duration: 0.3 });
     }
   }
 });

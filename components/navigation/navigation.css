@@ -25,6 +25,7 @@
 .navbar.scrolled {
     background-color: var(--nav-bg-scrolled);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.3rem 0.5rem; /* Ensure padding is consistent */
 }
 
 .navbar-container {
@@ -48,11 +49,19 @@
     margin-right: 10px; /* Add some space between the logo and text */
 }
 
+.navbar.scrolled .logo-img {
+    height: 50px; /* Consistent logo size when scrolled */
+}
+
 .logo-text {
     font-size: 1.2rem; /* Default font size for mobile */
     font-weight: bold;
     color: #FF6B6B; /* Set the text color to #FF6B6B */
     transition: all 0.3s ease;
+}
+
+.navbar.scrolled .logo-text {
+    font-size: 0.8rem; /* Consistent text size when scrolled */
 }
 
 .navbar-logo:hover .logo-img {
@@ -285,11 +294,24 @@
     }
 
     .navbar {
-        padding: 0.3rem 1rem;
+        padding: 0.3rem 0.5rem; /* Reduced left and right padding */
     }
 
     .logo-img {
-        height: 60px;
+        height: 50px; /* Smaller logo size for mobile */
+    }
+
+    .logo-text {
+        font-size: 0.8rem; /* Smaller text size for mobile */
+    }
+
+    .nav-button {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+
+    .donate-btn {
+        padding: 0.4rem 0.6rem; /* Smaller padding for donate button */
+        font-size: 0.9rem; /* Smaller font size for donate button */
     }
 
     .full-screen-menu {
@@ -298,14 +320,6 @@
 
     .menu-content {
         max-width: 250px;
-    }
-
-    .nav-button {
-        font-size: 1rem; /* Slightly smaller font size for mobile */
-    }
-
-    .full-screen-menu {
-        padding-top: 80px; /* Adjusted top padding for mobile */
     }
 
     .menu-items a {
