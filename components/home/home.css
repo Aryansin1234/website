@@ -49,13 +49,13 @@
 .new-btn {
     display: inline-block;
     padding: 15px 30px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 50px;
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: #fff;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -125,7 +125,7 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 5px; /* Reduced gap */
 }
 
 ul li {
@@ -134,34 +134,33 @@ ul li {
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-li span{
+li span {
     display: block;
     font-size: 4rem;
     color: #fffcfc;
+    line-height: 1; /* Ensure consistent line height */
 }
 
 .separator {
-    margin: 0 10px;
+    margin: 0;
     color: #f9f7f7;
-    font-size: 2rem;
+    font-size: 4rem; /* Match the size of the numbers */
     font-weight: bold;
-    text-align: center;
+    align-self: flex-start; /* Align with the top of the numbers */
+    line-height: 1; /* Ensure consistent line height */
+    padding-top: 2px; /* Fine-tune vertical alignment */
 }
 
-.label{
+.label {
     color: #ff6b6b;
     font-size: 1.5rem;
     display: block;
-}
-
-li:first-of-type{
-    margin-right: 10px;
-}
-
-li:first-of-type{
-    margin-right: 5rem;
+    margin-top: 0.5rem; /* Add some space between number and label */
 }
 
 /* Responsive adjustments */
@@ -180,31 +179,38 @@ li:first-of-type{
 
     #home-buttons {
         flex-direction: column;
+        align-items: center;
     }
 
     .new-btn {
-        width: 100%;
+        width: auto;
+        min-width: 0;
         margin-bottom: 10px;
-    }
-
-    ul {
-        flex-wrap: wrap;
-    }
-
-    ul li {
-        margin: 10px;
-    }
-
-    li span {
-        font-size: 3rem;
-    }
-
-    .label {
+        padding: 12px 20px;
         font-size: 1rem;
     }
 
+    ul {
+        flex-wrap: nowrap; /* Prevent wrapping on smaller screens */
+        justify-content: center;
+        gap: 2px; /* Further reduce gap on smaller screens */
+    }
+
+    ul li {
+        margin: 0;
+    }
+
+    li span, .separator {
+        font-size: 2.5rem;
+    }
+
+    .label {
+        font-size: 0.9rem;
+    }
+
     .separator {
-        display: none;
+        display: block; /* Show separators on mobile */
+        padding-top: 1px; /* Adjust for smaller font size */
     }
 }
 
@@ -217,11 +223,16 @@ li:first-of-type{
         font-size: 0.9rem;
     }
 
-    li span {
-        font-size: 2.5rem;
+    li span, .separator {
+        font-size: 2rem;
     }
 
     .label {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .new-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
     }
 }

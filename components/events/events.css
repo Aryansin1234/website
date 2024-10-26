@@ -20,6 +20,10 @@
     color: var(--primary-color);
 }
 
+.events-section h3 {
+    font-size: 1.3rem;
+}
+
 .card-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap');
 
-/* Add these styles at the beginning of your CSS file */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+:root {
+    --primary-color: #FF6F61;
+    --secondary-color: #6B5B95;
+    --text-color: #000000;
+    --background-color: #F9F9F9;
+    --stat-bg-color: #f0f0f0;
 }
 
-body, html {
-    height: 100%;
-    width: 100%;
-    overflow-x: hidden;
-}
 
 #about-content {
     min-height: 100vh;
@@ -21,14 +18,6 @@ body, html {
     justify-content: flex-start;
     align-items: center;
     padding: 2rem 0;
-}
-
-:root {
-    --primary-color: #FF6F61;
-    --secondary-color: #6B5B95;
-    --text-color: #333;
-    --background-color: #F9F9F9;
-    --stat-bg-color: #f0f0f0;
 }
 
 body {
@@ -52,9 +41,14 @@ h1, h2, .section-title {
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     text-align: center;
     margin-bottom: 2rem;
+    padding-top: 2.5rem;
+}
+
+p {
+    font-size: 1.2rem;
 }
 
 h2 {
@@ -71,6 +65,7 @@ h2 {
 
 .text-content, .image-content {
     flex: 1;
+    font-size: 1.2rem;
 }
 
 .about-image {
@@ -153,44 +148,78 @@ h2 {
     letter-spacing: 1px;
 }
 
-.activities-list {
+/* Common styles for both lists */
+.activities-list,
+.achievements-list {
     list-style-type: none;
     padding-left: 0;
-}
-
-.activities-list li {
-    margin-bottom: 0.5rem;
-}
-
-.activity-title {
-    font-weight: bold;
-    color: var(--primary-color);
-    font-size: 1.1rem;
-}
-
-.achievements-section ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.achievements-section li {
     margin-bottom: 1rem;
-    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%; /* Stretch to full width */
+}
+
+/* Common styles for list items */
+.activities-list li,
+.achievement-item {
+    padding: 0.75rem 1rem 0.75rem 2rem;
+    background-color: #fff;
+    border-left: 4px solid #FF6F61; /* Using the specified color */
+    border-radius: 0 4px 4px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Stretch to full width */
     position: relative;
 }
 
-.achievements-section li::before {
-    content: "✓";
-    color: var(--primary-color);
+/* Common styles for bullet points */
+.activities-list li::before,
+.achievement-item::before {
+    content: '•';
+    color: #FF6F61; /* Using the specified color */
     position: absolute;
-    left: 0;
-    font-weight: bold;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
-.highlight {
-    background-color: rgba(255, 111, 97, 0.2);
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
+/* Common hover styles */
+.activities-list li:hover,
+.achievement-item:hover {
+    background-color: #FF6F61; /* Using the specified color */
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.activities-list li:hover::before,
+.achievement-item:hover::before {
+    color: #fff;
+}
+
+/* Text styles */
+.activity-title,
+.achievement-item {
+    font-weight: bold;
+    color: #000000; /* Adjust this color as needed for visibility */
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.activities-list li:hover .activity-title,
+.achievement-item:hover {
+    color: #fff;
+}
+
+/* Specific styles for achievements if needed */
+.achievements-list {
+    /* Add any specific styles for the achievements list container here */
+}
+
+.achievement-item {
+    /* Add any specific styles for achievement items here */
 }
 
 @media (max-width: 768px) {
@@ -205,6 +234,66 @@ h2 {
     
     .stat-item {
         width: 100%;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    p, .text-content {
+        font-size: 1rem;
+    }
+
+    .stat-number {
+        font-size: 4rem;
+    }
+
+    .stat-label {
+        font-size: 1.2rem;
+    }
+
+    .activity-title,
+    .achievement-item {
+        font-size: 1.1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.4rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p, .text-content {
+        font-size: 0.9rem;
+    }
+
+    .stat-number {
+        font-size: 3rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    .activity-title,
+    .achievement-item {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0.5rem;
     }
 }
 

@@ -35,3 +35,14 @@ window.addEventListener('scroll', function() {
         scrollToTopBtn.classList.remove('visible');
     }
 });
+
+// Preloader functionality
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => {
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500); // Match this with the CSS transition duration
+    }, 3000); // 3 seconds delay
+});

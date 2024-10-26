@@ -7,6 +7,7 @@
     max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
+    padding: 0 70px; /* Add padding to make room for arrows */
 }
 
 .news-carousel {
@@ -22,7 +23,7 @@
 
 .news-card-image {
     width: 100%;
-    height: 200px;
+    height: 250px; /* Increased height for better visibility */
     object-fit: cover;
     border-radius: 10px;
 }
@@ -31,35 +32,37 @@
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    padding: 20px; /* Increased padding */
     margin-top: 15px;
 }
 
 .news-card-date {
-    font-size: 0.8rem;
+    font-size: 0.9rem; /* Slightly increased font size */
     color: #888;
-    margin-bottom: 5px;
+    margin-bottom: 8px; /* Increased margin */
 }
 
 .news-card-title {
-    font-size: 1.5rem;
+    font-size: 1.6rem; /* Increased font size */
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 12px; /* Increased margin */
 }
 
 .news-card-summary {
-    font-size: 0.9rem;
+    font-size: 1rem; /* Increased font size */
     color: #555;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased margin */
+    line-height: 1.5; /* Improved readability */
 }
 
 .news-card-button {
     background-color: #FF6B6B;
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 24px; /* Increased padding */
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem; /* Increased font size */
 }
 
 .news-card-button:hover {
@@ -79,6 +82,7 @@
     width: 40px;
     height: 40px;
     transition: background-color 0.3s ease;
+    z-index: 10; /* Ensure arrows are above the carousel content */
 }
 
 .news-carousel-arrow:hover {
@@ -86,11 +90,11 @@
 }
 
 .news-carousel-arrow.left {
-    left: 10px;
+    left: 5px; /* Move left arrow slightly to the left */
 }
 
 .news-carousel-arrow.right {
-    right: 10px;
+    right: 5px; /* Move right arrow slightly to the right */
 }
 
 @media (min-width: 769px) {
@@ -100,13 +104,68 @@
     }
 
     .news-card-image {
-        flex: 0 0 40%;
-        height: 300px;
-        margin-right: 20px;
+        flex: 0 0 45%; /* Slightly increased image width */
+        height: 350px; /* Increased height */
+        margin-right: 30px; /* Increased margin */
     }
 
     .news-card-content {
         flex: 1;
         margin-top: 0;
+    }
+
+    .news-card-title {
+        font-size: 1.8rem; /* Increased font size for laptop */
+    }
+
+    .news-card-summary {
+        font-size: 1.1rem; /* Increased font size for laptop */
+    }
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+    .news-carousel-container {
+        padding: 0 20px; /* Reduced padding on smaller screens */
+    }
+
+    .news-card {
+        padding: 15px; /* Reduced padding */
+    }
+
+    .news-card-image {
+        height: 200px; /* Adjusted height for mobile */
+    }
+
+    .news-card-content {
+        padding: 15px; /* Reduced padding */
+    }
+
+    .news-card-title {
+        font-size: 1.4rem; /* Adjusted font size for mobile */
+    }
+
+    .news-card-summary {
+        font-size: 0.9rem; /* Adjusted font size for mobile */
+        margin-bottom: 15px; /* Reduced margin */
+    }
+
+    .news-card-button {
+        padding: 10px 20px; /* Adjusted padding for mobile */
+        font-size: 0.9rem; /* Adjusted font size for mobile */
+    }
+
+    .news-carousel-arrow {
+        width: 35px; /* Slightly increased arrow size */
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .news-carousel-arrow.left {
+        left: 0;
+    }
+
+    .news-carousel-arrow.right {
+        right: 0;
     }
 }

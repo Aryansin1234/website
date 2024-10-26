@@ -26,7 +26,7 @@ fullviewOverlay.addEventListener('click', function(e) {
 
 // Clone gallery items for seamless loop
 const originalItems = document.querySelectorAll('.gallery-item');
-const itemWidth = 270; // 250px width + 20px margin
+const itemWidth = window.innerWidth < 768 ? 160 : 270; // 150px/250px width + 10px/20px margin
 const itemsToClone = originalItems.length;
 
 for (let i = 0; i < itemsToClone; i++) {
@@ -41,7 +41,7 @@ setupGalleryItemListeners();
 let currentPosition = 0;
 
 function moveGallery() {
-    currentPosition -= 1; // Adjust speed here
+    currentPosition -= 1; // Reduced speed for smoother animation
     galleryTrack.style.transform = `translateX(${currentPosition}px)`;
 
     // Check if we need to reset
@@ -57,6 +57,11 @@ function moveGallery() {
 }
 
 moveGallery();
+
+// Add resize event listener to update itemWidth when screen size changes
+window.addEventListener('resize', function() {
+    itemWidth = window.innerWidth < 768 ? 160 : 270;
+});
 
 // GSAP animation for gallery items (if still needed)
 gsap.utils.toArray('.gallery-item').forEach((item, i) => {

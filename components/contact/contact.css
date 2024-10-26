@@ -17,6 +17,7 @@
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
@@ -24,19 +25,28 @@
     z-index: 1;
 }
 
-.contact-info, .youtube-showcase {
+.contact-info {
     flex: 1;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .logo-container {
     text-align: center;
     margin-bottom: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .logo-animation {
     width: 150px;
     animation: logoFloat 3s ease-in-out infinite;
+    max-width: 100%;
+    height: auto;
 }
 
 @keyframes logoFloat {
@@ -80,13 +90,21 @@
 .social-icon {
     font-size: 1.5rem;
     color: var(--text-color);
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
 }
 
 .social-icon:hover {
     color: var(--primary-color);
-    transform: scale(1.2);
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .social-icon::after {
@@ -111,11 +129,22 @@
     transform: translateX(-50%) translateY(-5px);
 }
 
+.youtube-showcase {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
 .youtube-showcase h3 {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 20px;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
 }
 
 .youtube-video {
@@ -126,11 +155,9 @@
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.youtube-video:hover {
-    transform: scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 560px; /* Match the iframe width */
+    margin: 0 auto;
 }
 
 .youtube-video iframe {
@@ -139,7 +166,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
+    border: 0;
 }
 
 .youtube-channel-link {
@@ -153,12 +180,7 @@
     margin-top: 20px;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.youtube-channel-link:hover {
-    background-color: var(--secondary-color);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
 }
 
 .background-animation {
@@ -199,21 +221,105 @@
     }
 }
 
+/* New footer styles */
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-logo {
+    margin-bottom: 10px;
+}
+
+.footer-logo-img {
+    width: 100px;
+    height: auto;
+}
+
+.footer-email {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: var(--accent-color);
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .contact-container {
         flex-direction: column;
+        align-items: center;
     }
 
     .contact-info, .youtube-showcase {
         width: 100%;
-        text-align: center;
+        padding: 10px;
     }
 
-    .social-links {
-        justify-content: center;
+    .contact-info h2, .youtube-showcase h3 {
+        font-size: 2rem;
+    }
+
+    .contact-info p, .contact-email {
+        font-size: 1rem;
     }
 
     .youtube-video {
-        margin-bottom: 20px;
+        max-width: 100%;
+    }
+
+    .footer-content {
+        padding: 0 15px;
     }
 }

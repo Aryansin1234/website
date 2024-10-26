@@ -2,13 +2,13 @@
 :root {
     --primary-color: #FF6B6B;
     --secondary-color: #4ECDC4;
-    --text-color: #FFFFFF; /* Changed to white for better visibility on video */
+    --text-color: #ffffff;
     --menu-bg: rgba(255, 107, 107, 0.95);
     --menu-text: #FFFFFF;
     --hover-color: #FFD93D;
-    --icon-hover-bg: rgba(255, 255, 255, 0.2);
+    --icon-hover-bg: rgba(255, 255, 255, 0.993);
     --nav-bg-scrolled: #FFFFFF;
-    --button-bg: rgba(0, 0, 0, 0.5); /* Semi-transparent background for buttons */
+    --button-bg: rgba(0, 0, 0, 0.5);
 }
 
 .navbar {
@@ -16,10 +16,10 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
-    padding: 0.5rem 2rem;
-    background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
-    transition: all 0.3s ease;
+    z-index: 1003; /* Increase z-index to be above full-screen menu */
+    padding: 0.5rem 0.5rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease, background-color 0.3s ease;
 }
 
 .navbar.scrolled {
@@ -45,10 +45,22 @@
     height: 80px;
     width: auto;
     transition: all 0.3s ease;
+    margin-right: 10px; /* Add some space between the logo and text */
+}
+
+.logo-text {
+    font-size: 1.2rem; /* Default font size for mobile */
+    font-weight: bold;
+    color: #FF6B6B; /* Set the text color to #FF6B6B */
+    transition: all 0.3s ease;
 }
 
 .navbar-logo:hover .logo-img {
     transform: scale(1.1) rotate(5deg);
+}
+
+.navbar-logo:hover .logo-text {
+    color: var(--hover-color);
 }
 
 .navbar-right {
@@ -65,8 +77,8 @@
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
-    color: var(--text-color);
-    background-color: var(--button-bg);
+    color: #fff;
+    font-size: 1.1rem; /* Increased font size */
 }
 
 .navbar.scrolled .nav-button {
@@ -77,15 +89,6 @@
 .nav-button:hover {
     transform: translateY(-2px);
     background-color: rgba(255, 255, 255, 0.2);
-}
-
-.about-btn, .events-btn {
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-}
-
-.about-btn:hover, .events-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .donate-btn {
@@ -112,6 +115,8 @@
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
     margin-left: 1rem;
+    z-index: 1003;
+    position: relative;
 }
 
 .hamburger-box {
@@ -172,12 +177,14 @@
     height: 100%;
     background-color: var(--menu-bg);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 1002;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
+    padding-top: 120px; /* Increased top padding */
 }
 
 .full-screen-menu.active {
@@ -187,39 +194,52 @@
 
 .menu-content {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
 }
 
 .menu-items {
     list-style-type: none;
     padding: 0;
-    margin-bottom: 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-top: 2rem; /* Added top padding */
 }
 
 .menu-items li {
-    margin: 1.5rem 0;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-}
-
-.full-screen-menu.active .menu-items li {
-    opacity: 1;
-    transform: translateY(0);
+    margin: 15px 0; /* Increased vertical margin */
+    width: 100%;
+    text-align: center;
 }
 
 .menu-items a {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Increased font size */
     color: var(--menu-text);
     text-decoration: none;
     transition: all 0.3s ease;
     position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    text-align: center;
 }
 
 .menu-items a::after {
     content: '';
     position: absolute;
     bottom: -5px;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 2px;
     background-color: var(--menu-text);
@@ -227,45 +247,21 @@
 }
 
 .menu-items a:hover::after {
-    width: 100%;
+    width: 80%;
 }
 
 .menu-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-}
-
-.social-icon {
-    color: var(--menu-text);
-    font-size: 1.5rem;
-    margin: 0 1rem;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-}
-
-.social-icon:hover {
-    transform: scale(1.1);
-    background-color: var(--icon-hover-bg);
-    color: var(--hover-color);
+    margin-top: 1rem;
+    padding-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
 }
 
 .join-btn {
     background-color: transparent;
     color: var(--menu-text);
     border: 2px solid var(--menu-text);
+    margin-top: 1rem; /* Added margin above the Join Us button */
 }
 
 .join-btn:hover {
@@ -273,7 +269,6 @@
     color: var(--primary-color);
 }
 
-/* Add these new styles */
 @media screen and (min-width: 769px) {
     .hamburger-menu {
         display: none;
@@ -281,7 +276,7 @@
 }
 
 @media screen and (max-width: 768px) {
-    .navbar-right .nav-button:not(.donate-btn) {
+    .navbar-right .nav-button:not(.donate-btn):not(.hamburger-menu) {
         display: none;
     }
 
@@ -290,21 +285,49 @@
     }
 
     .navbar {
-        padding: 0.3rem 1rem; /* Reduce padding for mobile */
+        padding: 0.3rem 1rem;
     }
 
     .logo-img {
-        height: 60px; /* Smaller logo for mobile */
+        height: 60px;
+    }
+
+    .full-screen-menu {
+        padding-top: 60px;
+    }
+
+    .menu-content {
+        max-width: 250px;
+    }
+
+    .nav-button {
+        font-size: 1rem; /* Slightly smaller font size for mobile */
+    }
+
+    .full-screen-menu {
+        padding-top: 80px; /* Adjusted top padding for mobile */
+    }
+
+    .menu-items a {
+        font-size: 1.6rem; /* Slightly smaller font size for mobile */
     }
 }
 
-/* Add styles for better visibility of the hamburger menu */
-.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-    background-color: var(--text-color);
+.logo-text {
+    font-size: 0.9rem; /* Default font size for mobile */
+    font-weight: bold;
+    color: #FF6B6B; /* Set the text color to #FF6B6B */
+    transition: all 0.3s ease;
 }
 
-.navbar.scrolled .hamburger-inner,
-.navbar.scrolled .hamburger-inner::before,
-.navbar.scrolled .hamburger-inner::after {
-    background-color: var(--primary-color);
+@media screen and (min-width: 768px) {
+    .logo-text {
+        font-size: 0.8rem; /* Larger font size for tablets and laptops */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .logo-text {
+        font-size: 1.5rem; /* Even larger font size for desktops */
+    }
 }
