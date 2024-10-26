@@ -134,6 +134,9 @@ body {
     overflow: hidden;
     border-radius: 5px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .loading-progress {
@@ -160,5 +163,6 @@ body {
 
     .loading-bar {
         width: 70%;
+        max-width: 250px;
     }
 }
