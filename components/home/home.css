@@ -236,3 +236,60 @@ li span {
         font-size: 0.8rem;
     }
 }
+
+.join-us-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.join-us-message {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    text-align: center;
+}
+
+.message-text {
+    display: block;
+    color: #FFD700; /* Bright gold color for visibility */
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.message-details {
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 640px) {
+    .join-us-message {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .message-text {
+        font-size: 1rem;
+    }
+    
+    .message-details {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .message-text {
+        font-size: 0.9rem;
+    }
+    
+    .message-details {
+        font-size: 0.75rem;
+    }
+}
