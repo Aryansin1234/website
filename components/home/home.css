@@ -40,10 +40,9 @@
 
 #home-buttons {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .new-btn {
@@ -241,56 +240,69 @@ li span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    max-width: 90%;
-    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    max-width: fit-content;
 }
 
 .join-us-message {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
     text-align: center;
-    width: 100%; /* Ensure full width */
+    margin-bottom: 0.75rem;
 }
 
 .message-text {
     display: block;
-    color: #FFD700;
+    color: #FFFFFF;
     font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
 }
 
 .message-details {
     color: #FFFFFF;
+    font-size: 0.85rem;
+    line-height: 1.3;
+    opacity: 0.9;
+}
+
+#join-btn {
+    background-color: #FF6B6B;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.6rem 1.25rem;
     font-size: 0.9rem;
-    line-height: 1.4;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+#join-btn:hover {
+    background-color: #FFD93D;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 768px) {
     .join-us-wrapper {
-        max-width: 100%;
-    }
-
-    .join-us-message {
-        padding: 0.5rem 0.75rem;
-    }
-    
-    .message-text {
-        font-size: 1rem;
-    }
-    
-    .message-details {
-        font-size: 0.8rem;
+        padding: 0.75rem;
+        max-width: 90%;
     }
 }
 
 @media (max-width: 480px) {
-    .join-us-message {
+    #home-buttons {
+        gap: 0.5rem;
+    }
+
+    .join-us-wrapper {
         padding: 0.5rem;
     }
 
@@ -300,5 +312,10 @@ li span {
     
     .message-details {
         font-size: 0.75rem;
+    }
+
+    #join-btn {
+        font-size: 0.8rem;
+        padding: 0.5rem 1rem;
     }
 }
