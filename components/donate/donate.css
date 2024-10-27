@@ -8,6 +8,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    background-color: #f7f5f5;
 }
 
 .donate-content {
@@ -16,36 +17,34 @@
     padding: 4rem 2rem;
 }
 
-.payment-icon {
-    @apply flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110 hover:shadow-lg;
-    width: 120px;
-    height: 120px;
-    background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 1.5rem;
+.payment-method {
+    @apply flex flex-col items-center justify-center cursor-pointer transition-all duration-300 hover:scale-110;
+}
+
+.payment-gif {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(255, 107, 107, 0.1);
 }
 
 #donate-title {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 4px rgba(255, 107, 107, 0.1);
 }
 
 .word {
     display: inline-block;
     white-space: nowrap;
     margin-right: 0.5rem;
-    
 }
 
 #donate-description {
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(255, 107, 107, 0.1);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #donate-button {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
 }
 
 @media (max-width: 768px) {
@@ -56,20 +55,9 @@
     .donate-content {
         padding: 3rem 1rem;
     }
-
-    .payment-icon {
-        width: 100px;
-        height: 100px;
-        padding: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .payment-icon {
-        width: 80px;
-        height: 80px;
-    }
-
     .word {
         display: inline;
         margin-right: 0.25rem;

@@ -241,6 +241,7 @@
 
 .footer-logo {
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .footer-logo-img {
@@ -249,9 +250,10 @@
 }
 
 .footer-email {
+    display: inline-block;
+    font-size: 1.1rem;
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.2rem;
     transition: color 0.3s ease;
 }
 
@@ -295,6 +297,53 @@
     margin-top: 10px;
 }
 
+.footer-contact {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.trust-name {
+    font-size: 2rem;
+    color: #FF6B6B;
+    margin-bottom: 10px;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.footer-contact i {
+    margin-right: 8px;
+    color: #FF6B6B;
+}
+
+.footer-section-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--accent-color);
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .contact-container {
@@ -321,5 +370,10 @@
 
     .footer-content {
         padding: 0 15px;
+    }
+
+    .footer-section-links, .footer-links {
+        flex-direction: column;
+        align-items: center;
     }
 }
