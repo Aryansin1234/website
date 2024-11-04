@@ -339,3 +339,28 @@ li span {
         display: block;
     }
 }
+
+/* Update video styles */
+.desktop-video, .mobile-video {
+    transition: opacity 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .desktop-video {
+        display: none;
+    }
+    
+    .mobile-video {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    .desktop-video {
+        display: block;
+    }
+    
+    .mobile-video {
+        display: none;
+    }
+}

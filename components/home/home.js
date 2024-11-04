@@ -18,6 +18,32 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 600);
         });
     });
+
+    const desktopVideo = document.getElementById('desktopVideo');
+    const mobileVideo = document.getElementById('mobileVideo');
+
+    function handleVideoLoad(video) {
+        // Initially hide video until it's ready
+        video.style.opacity = '0';
+        
+        video.addEventListener('canplay', () => {
+            // Fade in video once it can play
+            video.style.opacity = '1';
+        });
+
+        // Add error handling
+        video.addEventListener('error', () => {
+            console.log('Video failed to load, keeping thumbnail visible');
+            video.style.display = 'none';
+        });
+    }
+
+    // Initialize video loading handlers based on screen size
+    if (window.innerWidth > 768) {
+        handleVideoLoad(desktopVideo);
+    } else {
+        handleVideoLoad(mobileVideo);
+    }
 });
 
 
