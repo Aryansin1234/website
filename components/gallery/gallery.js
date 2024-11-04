@@ -3,30 +3,75 @@ const galleryTrack = document.querySelector('.gallery-track');
 const fullviewOverlay = document.getElementById('fullviewOverlay');
 const fullviewImage = document.getElementById('fullviewImage');
 
+// Keep track of gallery state
+let currentImageIndex = 0;
+const galleryImages = [];
+
 function setupGalleryItemListeners() {
     const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach(item => {
+    
+    // Store original images (not clones) in galleryImages array
+    galleryItems.forEach((item, index) => {
+        if (index < itemsToClone) { // Only store original images
+            galleryImages.push(item.querySelector('img').src);
+        }
+        
         item.addEventListener('click', function() {
-            const imgSrc = this.querySelector('img').src;
-            fullviewImage.src = imgSrc;
+            const clickedIndex = Array.from(galleryItems).indexOf(this) % itemsToClone;
+            currentImageIndex = clickedIndex;
+            showImage(currentImageIndex);
             fullviewOverlay.classList.add('active');
+            // Pause the gallery animation when viewing full image
+            galleryTrack.style.animationPlayState = 'paused';
         });
     });
 }
 
-function closeFullview() {
-    fullviewOverlay.classList.remove('active');
+function showImage(index) {
+    fullviewImage.src = galleryImages[index];
 }
 
-fullviewOverlay.addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeFullview();
+function showNextImage() {
+    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+    showImage(currentImageIndex);
+}
+
+function showPrevImage() {
+    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+    showImage(currentImageIndex);
+}
+
+function closeFullview() {
+    fullviewOverlay.classList.remove('active');
+    // Resume the gallery animation
+    galleryTrack.style.animationPlayState = 'running';
+}
+
+// Set up navigation buttons
+document.getElementById('nextBtn').addEventListener('click', showNextImage);
+document.getElementById('prevBtn').addEventListener('click', showPrevImage);
+document.getElementById('exitBtn').addEventListener('click', closeFullview);
+
+// Add keyboard navigation
+document.addEventListener('keydown', function(e) {
+    if (!fullviewOverlay.classList.contains('active')) return;
+    
+    switch(e.key) {
+        case 'ArrowRight':
+            showNextImage();
+            break;
+        case 'ArrowLeft':
+            showPrevImage();
+            break;
+        case 'Escape':
+            closeFullview();
+            break;
     }
 });
 
 // Clone gallery items for seamless loop
 const originalItems = document.querySelectorAll('.gallery-item');
-const itemWidth = window.innerWidth < 768 ? 160 : 270; // 150px/250px width + 10px/20px margin
+const itemWidth = window.innerWidth < 768 ? 160 : 270;
 const itemsToClone = originalItems.length;
 
 for (let i = 0; i < itemsToClone; i++) {
@@ -37,19 +82,23 @@ for (let i = 0; i < itemsToClone; i++) {
 // Set up listeners for all items, including clones
 setupGalleryItemListeners();
 
-// Set initial position
+// Animation code
 let currentPosition = 0;
 
 function moveGallery() {
-    currentPosition -= 1; // Reduced speed for smoother animation
+    if (fullviewOverlay.classList.contains('active')) {
+        requestAnimationFrame(moveGallery);
+        return;
+    }
+    
+    currentPosition -= 1;
     galleryTrack.style.transform = `translateX(${currentPosition}px)`;
 
-    // Check if we need to reset
     if (currentPosition <= -itemWidth * itemsToClone) {
         currentPosition += itemWidth * itemsToClone;
         galleryTrack.style.transition = 'none';
         galleryTrack.style.transform = `translateX(${currentPosition}px)`;
-        void galleryTrack.offsetWidth; // Trigger reflow
+        void galleryTrack.offsetWidth;
         galleryTrack.style.transition = 'transform 0.5s linear';
     }
 
@@ -58,7 +107,7 @@ function moveGallery() {
 
 moveGallery();
 
-// Add resize event listener to update itemWidth when screen size changes
+// Keep your existing resize event listener
 window.addEventListener('resize', function() {
     itemWidth = window.innerWidth < 768 ? 160 : 270;
 });

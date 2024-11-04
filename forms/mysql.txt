@@ -8,12 +8,13 @@ USE forms_db;
 CREATE TABLE members (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    contact VARCHAR(15) NOT NULL,
+    contact VARCHAR(20) NOT NULL,
     email VARCHAR(100) NOT NULL,
     address TEXT NOT NULL,
     interest VARCHAR(50) NOT NULL,
+    blood_group VARCHAR(5) NOT NULL,
     other_interest VARCHAR(100),
-    joined_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Create the table to store stall information
@@ -42,12 +43,13 @@ CREATE TABLE free_passes (
 CREATE TABLE volunteers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    contact VARCHAR(15) NOT NULL,
+    contact VARCHAR(20) NOT NULL,
     address TEXT NOT NULL,
     gender ENUM('male', 'female', 'other') NOT NULL,
     age INT NOT NULL,
     field VARCHAR(100) NOT NULL,
-    submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    days INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
@@ -60,4 +62,16 @@ CREATE TABLE performances (
     address TEXT NOT NULL,
     team_size INT DEFAULT 1,
     submission_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE business_ideas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    contact VARCHAR(20) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    address TEXT NOT NULL,
+    business_idea TEXT NOT NULL,
+    document_path VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

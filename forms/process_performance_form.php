@@ -1,8 +1,8 @@
 <?php
 // Database connection parameters
 $servername = "localhost";  // Usually 'localhost'
-$username = "root";         // MySQL username, adjust if necessary
-$password = "";             // MySQL password, adjust if necessary
+$username = "Arnish";         // MySQL username, adjust if necessary
+$password = "ArnishGACT";             // MySQL password, adjust if necessary
 $dbname = "forms_db";       // Database name
 
 // Create a connection to the MySQL database

@@ -3,8 +3,6 @@
 
 :root {
     --primary-color: #FF6F61;
-    --secondary-color: #6B5B95;
-    --text-color: #000000;
     --background-color: #F9F9F9;
     --stat-bg-color: #f0f0f0;
 }
@@ -23,7 +21,7 @@
 body {
     font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
     line-height: 1.6;
-    color: var(--text-color);
+    color: #000000;
     background-color: var(--background-color);
     margin: 0;
     padding: 0;
@@ -142,7 +140,7 @@ h2 {
 
 .stat-label {
     font-size: 1.4rem;
-    color: var(--text-color);
+    color: #000000;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;

@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Our Community</title>
+    <title>Join Our Team</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -83,54 +85,79 @@
 
         .membership-card {
             width: 100%;
-            max-width: 350px;
-            background: #fff;
-            border: 2px solid #fda085;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            text-align: center;
+            max-width: 400px;
+            background: linear-gradient(135deg, #ffffff, #f8f8f8);
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: left;
             position: relative;
-            margin: 1rem auto;
+            margin: 2rem auto;
             color: #333;
-            font-family: 'Arial', sans-serif;
-            display: none; /* Initially hidden */
+            font-family: 'Poppins', sans-serif;
+            display: none;
+            overflow: hidden;
+        }
+
+        .membership-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
         }
 
         .membership-card img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-            border-radius: 50%;
-            border: 2px solid #fda085;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .membership-card h3 {
             margin: 0.5rem 0;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #fda085;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2d3748;
+            line-height: 1.2;
         }
 
         .membership-card p {
-            margin: 0.25rem 0;
-            font-size: 1rem;
+            margin: 0.75rem 0;
+            font-size: 1.1rem;
+            color: #4a5568;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 0.75rem;
+        }
+
+        .membership-card p:last-of-type {
+            border-bottom: none;
         }
 
         .download-btn {
             display: inline-block;
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            background-color: #fda085;
+            margin-top: 1.5rem;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
             color: #fff;
-            border-radius: 5px;
+            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
         }
 
         .download-btn:hover {
-            background-color: #f6d365;
+            background: linear-gradient(45deg, #FF8E53, #FF6B6B);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -148,7 +175,7 @@
 <body class="text-gray-800">
     <div class="container">
         <div class="card p-6">
-            <h2 class="text-3xl font-bold text-[#FF6B6B] mb-4">Join Our Community</h2>
+            <h2 class="text-3xl font-bold text-[#FF6B6B] mb-4">Join Our Team</h2>
             <form id="joinForm" action="process_join_form.php" method="POST" class="space-y-4">
                 <input type="hidden" name="formType" value="joinForm">
                 <div>
@@ -165,6 +192,21 @@
                     <label class="block text-gray-700 font-semibold text-sm">Email Address *</label>
                     <input type="email" required name="email" class="form-input mt-1 block w-full" />
                     <span class="error-message">Valid email required</span>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold text-sm">Blood Group *</label>
+                    <select required name="bloodGroup" class="form-input mt-1 block w-full">
+                        <option value="">Select Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                    <span class="error-message">Please select your blood group</span>
                 </div>
                 <div>
                     <label class="block text-gray-700 font-semibold text-sm">Address *</label>
@@ -195,11 +237,12 @@
         </div>
 
         <div class="membership-card" id="membershipCard">
-            <img src="https://github.com/Aryansin1234/ImageVideo/blob/main/GURJAR-ARTS-AND-CULTUR-LOGO-RED-1.png?raw=true" alt="Trust Logo">
+            <img src="../assets/logo.png" alt="Trust Logo">
             <h3>Gurjar Art and Cultural Trust</h3>
             <p id="cardName"></p>
             <p id="cardContact"></p>
             <p id="cardEmail"></p>
+            <p id="cardBloodGroup"></p>
             <p id="cardDate"></p>
             <a href="#" id="downloadBtn" class="download-btn">Download Card</a>
         </div>
@@ -237,11 +280,13 @@
                         const name = this.querySelector('input[name="name"]').value;
                         const contact = this.querySelector('input[name="contact"]').value;
                         const email = this.querySelector('input[name="email"]').value;
+                        const bloodGroup = this.querySelector('select[name="bloodGroup"]').value;
                         const dateJoined = new Date().toLocaleDateString();
 
                         document.getElementById('cardName').textContent = `Name: ${name}`;
                         document.getElementById('cardContact').textContent = `Contact: ${contact}`;
                         document.getElementById('cardEmail').textContent = `Email: ${email}`;
+                        document.getElementById('cardBloodGroup').textContent = `Blood Group: ${bloodGroup}`;
                         document.getElementById('cardDate').textContent = `Date Joined: ${dateJoined}`;
 
                         const card = document.getElementById('membershipCard');

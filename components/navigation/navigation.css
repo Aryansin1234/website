@@ -183,17 +183,18 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Changed to vh unit */
     background-color: var(--menu-bg);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Changed from center */
     align-items: center;
     z-index: 1002;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s ease;
-    padding-top: 120px; /* Increased top padding */
+    padding-top: 100px; /* Adjusted padding */
+    overflow-y: auto; /* Added scroll if needed */
 }
 
 .full-screen-menu.active {
@@ -205,12 +206,13 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* Changed from center */
     align-items: center;
-    height: 100%;
+    height: calc(100vh - 120px); /* Adjusted height */
     width: 100%;
-    max-width: 300px;
+    max-width: 400px; /* Increased max-width */
     margin: 0 auto;
+    padding: 1rem;
 }
 
 .menu-items {
@@ -222,25 +224,18 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 2rem; /* Added top padding */
+    gap: 1.5vh; /* Added gap using vh units */
 }
 
 .menu-items li {
-    margin: 15px 0; /* Increased vertical margin */
+    margin: 0; /* Removed fixed margins */
     width: 100%;
     text-align: center;
 }
 
 .menu-items a {
-    font-size: 1.8rem; /* Increased font size */
-    color: var(--menu-text);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    position: relative;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    width: 100%;
-    text-align: center;
+    font-size: clamp(1.2rem, 4vh, 1.8rem); /* Responsive font size */
+    padding: 1vh 1rem; /* Vertical padding in vh units */
 }
 
 .menu-items a::after {
@@ -260,8 +255,8 @@
 }
 
 .menu-footer {
-    margin-top: 1rem;
-    padding-bottom: 1.5rem;
+    margin-top: auto; /* Push to bottom */
+    padding: 2vh 0; /* Vertical padding in vh units */
     width: 100%;
     text-align: center;
 }
@@ -343,5 +338,34 @@
 @media screen and (min-width: 1024px) {
     .logo-text {
         font-size: 1.5rem; /* Even larger font size for desktops */
+    }
+}
+
+/* Updated media queries */
+@media screen and (max-height: 600px) {
+    .full-screen-menu {
+        padding-top: 70px;
+    }
+    
+    .menu-items {
+        gap: 1vh;
+    }
+    
+    .menu-items a {
+        padding: 0.5vh 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .full-screen-menu {
+        padding-top: 80px;
+    }
+    
+    .menu-content {
+        max-width: 300px;
+    }
+    
+    .menu-items a {
+        font-size: clamp(1.1rem, 3.5vh, 1.6rem);
     }
 }

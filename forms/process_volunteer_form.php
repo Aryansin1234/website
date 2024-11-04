@@ -1,8 +1,8 @@
 <?php
 // Database connection parameters
 $servername = "localhost";  // Usually 'localhost'
-$username = "root";         // MySQL username, adjust if necessary
-$password = "";             // MySQL password, adjust if necessary
+$username = "Arnish";         // MySQL username, adjust if necessary
+$password = "ArnishGACT";             // MySQL password, adjust if necessary
 $dbname = "forms_db";       // Database name
 
 // Create a connection to the MySQL database
@@ -22,13 +22,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gender = $conn->real_escape_string($_POST['gender']);
     $age = (int)$_POST['age'];
     $field = $conn->real_escape_string($_POST['field']);
+    $days = (int)$_POST['days'];
 
     // Debugging: Output the values being inserted
-    echo "Debug: Name: $name, Contact: $contact, Address: $address, Gender: $gender, Age: $age, Field: $field<br>";
+    echo "Debug: Name: $name, Contact: $contact, Address: $address, Gender: $gender, Age: $age, Field: $field, Days: $days<br>";
 
     // Insert form data into the `volunteers` table
-    $sql = "INSERT INTO volunteers (name, contact, address, gender, age, field) 
-            VALUES ('$name', '$contact', '$address', '$gender', '$age', '$field')";
+    $sql = "INSERT INTO volunteers (name, contact, address, gender, age, field, days) 
+            VALUES ('$name', '$contact', '$address', '$gender', '$age', '$field', '$days')";
 
     if ($conn->query($sql) === TRUE) {
         echo "Thank you, $name! Your volunteer information has been successfully submitted.";

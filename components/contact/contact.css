@@ -1,7 +1,6 @@
 :root {
     --primary-color: #FF6B6B;
     --secondary-color: #4ECDC4;
-    --text-color: #2C3E50;
     --bg-color: #F7F9FC;
     --accent-color: #FFD93D;
 }
@@ -17,9 +16,9 @@
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
     padding: 0 20px;
     position: relative;
     z-index: 1;
@@ -27,6 +26,8 @@
 
 .contact-info {
     flex: 1;
+    min-width: 300px;
+    max-width: 500px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -63,7 +64,7 @@
 
 .contact-info p {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: #000000;
     margin-bottom: 30px;
 }
 
@@ -74,6 +75,9 @@
     margin-bottom: 20px;
     text-decoration: none;
     transition: color 0.3s ease, transform 0.3s ease;
+    word-break: break-word;
+    max-width: 100%;
+    padding: 0 10px;
 }
 
 .contact-email:hover {
@@ -85,11 +89,12 @@
     display: flex;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .social-icon {
     font-size: 1.5rem;
-    color: var(--text-color);
+    color: #000000;
     transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     display: inline-flex;
@@ -131,6 +136,8 @@
 
 .youtube-showcase {
     flex: 1;
+    min-width: 300px;
+    max-width: 500px;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -149,14 +156,13 @@
 
 .youtube-video {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     width: 100%;
-    max-width: 560px; /* Match the iframe width */
+    max-width: 560px;
     margin: 0 auto;
 }
 
@@ -178,9 +184,8 @@
     text-decoration: none;
     font-weight: bold;
     margin-top: 20px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
 .background-animation {
@@ -202,178 +207,40 @@
     100% { background-position: 0% 50%; }
 }
 
-.animate-text {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.animate-button {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s ease forwards 0.5s;
-}
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* New footer styles */
-.footer {
-    background-color: #000;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.footer-logo {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.footer-logo-img {
-    width: 100px;
-    height: auto;
-}
-
-.footer-email {
-    display: inline-block;
-    font-size: 1.1rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-email:hover {
-    color: var(--accent-color);
-}
-
-.footer-social-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icon {
-    font-size: 1.5rem;
-    color: var(--primary-color);
-    transition: color 0.3s ease, transform 0.3s ease;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: transparent;
-}
-
-.social-icon:hover {
-    color: var(--accent-color);
-    transform: scale(1.1);
-}
-
-.footer p {
-    margin: 0;
-    font-size: 0.9rem;
-    margin-top: 10px;
-}
-
-.footer-contact {
-    text-align: center;
-    margin-bottom: 15px;
-}
-
-.trust-name {
-    font-size: 2rem;
-    color: #FF6B6B;
-    margin-bottom: 10px;
-}
-
-.footer-contact p {
-    margin: 5px 0;
-    font-size: 1.1rem;
-    color: #fff;
-}
-
-.footer-contact i {
-    margin-right: 8px;
-    color: #FF6B6B;
-}
-
-.footer-section-links {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.footer-links {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    margin-bottom: 10px;
-}
-
-.footer-link {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.footer-link:hover {
-    color: var(--accent-color);
-}
-
-/* Responsive adjustments */
+/* Media Queries */
 @media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        align-items: center;
+    .contact-section {
+        padding: 40px 0;
     }
 
-    .contact-info, .youtube-showcase {
-        width: 100%;
-        padding: 10px;
-    }
-
-    .contact-info h2, .youtube-showcase h3 {
+    .contact-info h2 {
         font-size: 2rem;
     }
 
-    .contact-info p, .contact-email {
+    .contact-email {
         font-size: 1rem;
     }
+}
 
-    .youtube-video {
-        max-width: 100%;
+@media (max-width: 480px) {
+    .contact-section {
+        padding: 30px 0;
     }
 
-    .footer-content {
-        padding: 0 15px;
+    .contact-info h2 {
+        font-size: 1.8rem;
     }
 
-    .footer-section-links, .footer-links {
-        flex-direction: column;
-        align-items: center;
+    .youtube-showcase h3 {
+        font-size: 1.6rem;
+    }
+
+    .logo-animation {
+        width: 120px;
+    }
+
+    .youtube-channel-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }

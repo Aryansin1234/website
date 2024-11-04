@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteering Section</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -119,6 +121,16 @@
                     <label class="block text-gray-700 font-semibold text-sm">Field to Volunteer *</label>
                     <input type="text" required name="field" class="form-input mt-1 block w-full" />
                     <span class="error-message">Field is required</span>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold text-sm">Number of Days *</label>
+                    <select required name="days" class="form-input mt-1 block w-full">
+                        <option value="">Select Days</option>
+                        <option value="1">1 Day</option>
+                        <option value="2">2 Days</option>
+                        <option value="3">3 Days</option>
+                    </select>
+                    <span class="error-message">Number of days is required</span>
                 </div>
                 <div>
                     <button type="submit" class="submit-btn w-full py-3 rounded-lg text-white text-lg font-semibold hover:shadow-xl">Submit</button>

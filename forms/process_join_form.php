@@ -4,8 +4,8 @@
 // Database configuration
 $host = 'localhost'; // Your database host
 $dbname = 'forms_db'; // Your database name
-$username = 'root'; // Your database username
-$password = ''; // Your database password
+$username = 'Arnish'; // Your database username
+$password = 'ArnishGACT'; // Your database password
 
 try {
     // Create a PDO instance
@@ -19,11 +19,12 @@ try {
         $email = $_POST['email'];
         $address = $_POST['address'];
         $interest = $_POST['interest'];
-        $otherInterest = $_POST['otherInterest'] ?? null; // Only if provided
+        $bloodGroup = $_POST['bloodGroup'];
+        $otherInterest = $_POST['otherInterest'] ?? null;
 
         // Insert data into the database
-        $stmt = $pdo->prepare("INSERT INTO members (name, contact, email, address, interest, other_interest) VALUES (?, ?, ?, ?, ?, ?)");
-        $success = $stmt->execute([$name, $contact, $email, $address, $interest, $otherInterest]);
+        $stmt = $pdo->prepare("INSERT INTO members (name, contact, email, address, interest, blood_group, other_interest) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $success = $stmt->execute([$name, $contact, $email, $address, $interest, $bloodGroup, $otherInterest]);
 
         // Return JSON response
         if ($success) {
