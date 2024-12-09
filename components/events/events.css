@@ -103,6 +103,7 @@
 
 .btn {
     margin-top: 20px;
+    font-weight: bold;
     background-color: white;
     color: var(--primary-color);
     padding: 10px 20px;

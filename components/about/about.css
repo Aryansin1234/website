@@ -56,9 +56,8 @@ h2 {
 
 .content-wrapper {
     display: flex;
+    align-items: stretch;
     gap: 2rem;
-    margin-bottom: 3rem;
-    align-items: center;
 }
 
 .text-content, .image-content {
@@ -66,9 +65,18 @@ h2 {
     font-size: 1.2rem;
 }
 
+.image-content {
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    min-height: 100%;
+}
+
 .about-image {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: fill;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

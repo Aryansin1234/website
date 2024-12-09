@@ -20,7 +20,7 @@
 
 :root {
     --primary-color: #FF6B6B;
-    --secondary-color: #4ECDC4;
+    --secondary-color: #14cfc3;
     --accent-color: #FFD93D;
     --text-color: #ffffff;
     --bg-color: #F7F9FC;
@@ -72,7 +72,7 @@ body {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: rgba(255, 107, 107, 0.8);
+    background: rgba(252, 0, 0, 0.8);
     color: white;
     border: none;
     border-radius: 50%;
@@ -243,15 +243,11 @@ body {
         <div id="footer"></div>
     </main>
 
-    <div id="footer"></div>
-
     <div class="scroll-to-top" id="scrollToTop" onclick="scrollToTop()">
         <i class="fas fa-chevron-up"></i>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
-
             // Load components
             loadComponent('navigation', 'navigation');
             loadComponent('home', 'home');
@@ -290,6 +286,9 @@ window.addEventListener('DOMContentLoaded', function() {
         // Add your critical resources here
         loadComponent('navigation', 'navigation'),
         loadComponent('home', 'home'),
+        loadComponent('about', 'about'),
+        loadComponent('gallery', 'gallery'),
+        loadComponent('news', 'news')
     ]).catch(error => {
         console.warn('Some components failed to load:', error);
         // Continue anyway after timeout
@@ -327,10 +326,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 // Function to load remaining components
 function loadRemainingComponents() {
-    loadComponent('about', 'about');
     loadComponent('events', 'events');
-    loadComponent('gallery', 'gallery');
-    loadComponent('news', 'news');
     loadComponent('sponsors', 'sponsors');
     loadComponent('donate', 'donate');
     loadComponent('contact', 'contact');
@@ -375,6 +371,21 @@ window.addEventListener('scroll', function() {
         scrollToTopBtn.classList.add('visible');
     } else {
         scrollToTopBtn.classList.remove('visible');
+    }
+});
+
+// Add this to your existing script
+window.addEventListener('load', function() {
+    // Check if there's a hash in the URL
+    if (window.location.hash) {
+        // Get the target element
+        const targetElement = document.querySelector(window.location.hash);
+        if (targetElement) {
+            // Wait a brief moment for components to load
+            setTimeout(() => {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }, 500);
+        }
     }
 });
 

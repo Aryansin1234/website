@@ -62,15 +62,27 @@ const connectedGurjars = document.getElementById("connected-gurjars");
 const connectedStates = document.getElementById("connected-states");
 const eventsOrganized = document.getElementById("events-organized");
 
+// Function to start stats animation
+function startStatsAnimation() {
+    // Reset values to 0 before starting animation
+    connectedGurjars.innerHTML = "0";
+    connectedStates.innerHTML = "0";
+    eventsOrganized.innerHTML = "0";
+    
+    // Start animations
+    animateValue(connectedGurjars, 0, 18, 2000);
+    animateValue(connectedStates, 0, 13, 2000);
+    animateValue(eventsOrganized, 0, 8, 2000);
+}
+
+// Create ScrollTrigger for stats section
 ScrollTrigger.create({
     trigger: ".stats-section",
     start: "top 80%",
-    onEnter: () => {
-        animateValue(connectedGurjars, 0, 18, 2000);
-        animateValue(connectedStates, 0, 13, 2000);
-        animateValue(eventsOrganized, 0, 8, 2000);
-    },
-    once: true
+    end: "bottom 20%",
+    onEnter: startStatsAnimation,
+    onEnterBack: startStatsAnimation, // Trigger animation when scrolling back up
+    toggleActions: "play none none reset" // Reset when scrolling away
 });
 
 // Animate achievements

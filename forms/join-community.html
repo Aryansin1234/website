@@ -60,7 +60,7 @@
         }
 
         .submit-btn {
-            background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+            background-color: #ed1f24;
             transition: all 0.3s ease;
             margin-top: 1rem;
             cursor: pointer;
@@ -175,8 +175,8 @@
 <body class="text-gray-800">
     <div class="container">
         <div class="card p-6">
-            <h2 class="text-3xl font-bold text-[#FF6B6B] mb-4">Join Our Team</h2>
-            <form id="joinForm" action="process_join_form.php" method="POST" class="space-y-4">
+            <h2 class="text-3xl font-bold text-[#ed1f24] mb-4">Join Our Team</h2>
+            <form id="joinForm" action="process_join_form.php" method="POST" class="space-y-4" autocomplete="off" novalidate>
                 <input type="hidden" name="formType" value="joinForm">
                 <div>
                     <label class="block text-gray-700 font-semibold text-sm">Full Name *</label>
@@ -209,9 +209,93 @@
                     <span class="error-message">Please select your blood group</span>
                 </div>
                 <div>
-                    <label class="block text-gray-700 font-semibold text-sm">Address *</label>
-                    <textarea required name="address" class="form-input mt-1 block w-full"></textarea>
-                    <span class="error-message">Address is required</span>
+                    <label class="block text-gray-700 font-semibold text-sm">Profession *</label>
+                    <select required name="profession" class="form-input mt-1 block w-full">
+                        <option value="">Select Profession</option>
+                        <option value="Student">Student</option>
+                        <option value="Doctor">Doctor</option>
+                        <option value="Engineer">Engineer</option>
+                        <option value="Teacher">Teacher</option>
+                        <option value="Business Owner">Business Owner</option>
+                        <option value="IT Professional">IT Professional</option>
+                        <option value="Lawyer">Lawyer</option>
+                        <option value="Accountant">Accountant</option>
+                        <option value="Artist">Artist</option>
+                        <option value="Writer">Writer</option>
+                        <option value="Healthcare Worker">Healthcare Worker</option>
+                        <option value="Sales Professional">Sales Professional</option>
+                        <option value="Marketing Professional">Marketing Professional</option>
+                        <option value="Government Employee">Government Employee</option>
+                        <option value="Architect">Architect</option>
+                        <option value="Chef">Chef</option>
+                        <option value="Researcher">Researcher</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span class="error-message">Please select your profession</span>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-semibold text-sm">Address Details *</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <input type="text" required name="houseNumber" placeholder="House Number" class="form-input mt-1 block w-full" />
+                            <span class="error-message">House number is required</span>
+                        </div>
+                        <div>
+                            <input type="text" required name="lane" placeholder="Street/Lane" class="form-input mt-1 block w-full" />
+                            <span class="error-message">Street/Lane is required</span>
+                        </div>
+                        <div>
+                            <input type="text" required name="city" placeholder="City" class="form-input mt-1 block w-full" />
+                            <span class="error-message">City is required</span>
+                        </div>
+                        <div>
+                            <select required name="state" class="form-input mt-1 block w-full">
+                                <option value="">Select State</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Ladakh">Ladakh</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Puducherry">Puducherry</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                            <span class="error-message">Please select a state</span>
+                        </div>
+                        <div>
+                            <input type="text" required name="pincode" pattern="[0-9]{6}" placeholder="Pincode" class="form-input mt-1 block w-full" />
+                            <span class="error-message">Valid 6-digit pincode required</span>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <label class="block text-gray-700 font-semibold text-sm">Field of Interest *</label>
@@ -233,12 +317,19 @@
                 <div>
                     <button type="submit" class="submit-btn w-full py-3 rounded-lg text-white text-lg font-semibold hover:shadow-xl">Submit</button>
                 </div>
+
+                <button type="button" class="submit-btn w-full py-3 rounded-lg text-white text-lg font-semibold hover:shadow-xl">
+                    <a href="../join-us.html" class="menu-item rounded-xl p-4 cursor-pointer">
+                        Back    
+                    </a>
+                </button>
             </form>
         </div>
 
         <div class="membership-card" id="membershipCard">
             <img src="../assets/logo.png" alt="Trust Logo">
             <h3>Gurjar Art and Cultural Trust</h3>
+            <p id="cardMemberId"></p>
             <p id="cardName"></p>
             <p id="cardContact"></p>
             <p id="cardEmail"></p>
@@ -248,72 +339,52 @@
         </div>
     </div>
 
+    <div id="formError" class="hidden text-red-500 text-center mt-4"></div>
+
+    <div id="toast" class="fixed bottom-5 right-5 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 opacity-0 translate-y-full">
+        <span id="toastMessage"></span>
+    </div>
+
     <script>
         document.getElementById('joinForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
-            const fields = this.querySelectorAll('input[required], textarea[required], select[required]');
-            let valid = true;
-
-            fields.forEach(field => {
-                const errorMessage = field.nextElementSibling;
-                if (!field.checkValidity()) {
-                    errorMessage.classList.add('visible');
-                    valid = false;
+            const formData = new FormData(this);
+            
+            fetch('process_join_form.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update membership card
+                    document.getElementById('cardName').textContent = `Name: ${data.data.name}`;
+                    document.getElementById('cardContact').textContent = `Contact: ${data.data.contact}`;
+                    document.getElementById('cardEmail').textContent = `Email: ${data.data.email}`;
+                    document.getElementById('cardBloodGroup').textContent = `Blood Group: ${data.data.bloodGroup}`;
+                    document.getElementById('cardDate').textContent = `Date Joined: ${data.data.dateJoined}`;
+                    document.getElementById('cardMemberId').textContent = `Member ID: ${data.data.memberId}`;
+                    
+                    // Show membership card and scroll to it
+                    const card = document.getElementById('membershipCard');
+                    card.style.display = 'block';
+                    card.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Show success toast
+                    showToast(data.message, 'success');
+                    
+                    // Reset form
+                    this.reset();
+                    
                 } else {
-                    errorMessage.classList.remove('visible');
+                    showToast(data.message, 'error');
                 }
+            })
+            .catch(error => {
+                showToast('An error occurred. Please try again.', 'error');
+                console.error('Error:', error);
             });
-
-            if (valid) {
-                // Create form data object
-                const formData = new FormData(this);
-                
-                // Submit the form data using fetch
-                fetch('process_join_form.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        const name = this.querySelector('input[name="name"]').value;
-                        const contact = this.querySelector('input[name="contact"]').value;
-                        const email = this.querySelector('input[name="email"]').value;
-                        const bloodGroup = this.querySelector('select[name="bloodGroup"]').value;
-                        const dateJoined = new Date().toLocaleDateString();
-
-                        document.getElementById('cardName').textContent = `Name: ${name}`;
-                        document.getElementById('cardContact').textContent = `Contact: ${contact}`;
-                        document.getElementById('cardEmail').textContent = `Email: ${email}`;
-                        document.getElementById('cardBloodGroup').textContent = `Blood Group: ${bloodGroup}`;
-                        document.getElementById('cardDate').textContent = `Date Joined: ${dateJoined}`;
-
-                        const card = document.getElementById('membershipCard');
-                        card.style.display = 'block';
-
-                        const downloadBtn = document.getElementById('downloadBtn');
-                        downloadBtn.addEventListener('click', function (e) {
-                            e.preventDefault();
-                            downloadBtn.style.display = 'none'; // Hide the download button
-                            html2canvas(card).then(canvas => {
-                                const link = document.createElement('a');
-                                link.href = canvas.toDataURL('image/png');
-                                link.download = 'membership_card.png';
-                                link.click();
-                                downloadBtn.style.display = 'inline-block'; // Show the download button again
-                            });
-                        });
-
-                        this.reset();
-                    } else {
-                        alert('Error saving data. Please try again.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }
         });
 
         document.getElementById('interestSelect').addEventListener('change', function () {
@@ -328,6 +399,67 @@
                 otherInterestInput.required = false;
                 otherInterestInput.value = ''; // Clear the input when hidden
             }
+        });
+
+        // Updated toast function
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            // Set toast styles based on type
+            const bgColor = type === 'success' ? 'bg-green-500' : 'bg-red-500';
+            toast.className = `fixed bottom-5 right-5 px-6 py-3 rounded-lg shadow-lg transform transition-all duration-500 ${bgColor} text-white z-50`;
+            
+            toastMessage.textContent = message;
+            
+            // Reset any existing transitions
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(100%)';
+            
+            // Force reflow
+            void toast.offsetWidth;
+            
+            // Show toast
+            toast.style.opacity = '1';
+            toast.style.transform = 'translateY(0)';
+            
+            // Hide toast after 3 seconds
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(100%)';
+            }, 3000);
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const card = document.getElementById('membershipCard');
+            const downloadBtn = document.getElementById('downloadBtn');
+            
+            // Hide download button
+            downloadBtn.style.display = 'none';
+            
+            html2canvas(card, {
+                scale: 2, // Better resolution
+                useCORS: true, // Handle cross-origin images
+                backgroundColor: '#ffffff',
+                logging: false
+            }).then(canvas => {
+                // Create a download link
+                const link = document.createElement('a');
+                link.download = 'GACT-Membership-Card.png';
+                link.href = canvas.toDataURL('image/png');
+                
+                // Show download button again
+                downloadBtn.style.display = 'block';
+                
+                link.click();
+            }).catch(err => {
+                // Show download button again in case of error
+                downloadBtn.style.display = 'block';
+                console.error('Error generating image:', err);
+                showToast('Error generating image. Please try again.', 'error');
+            });
         });
     </script>
 </body>

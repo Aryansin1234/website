@@ -1,6 +1,6 @@
 :root {
     --primary-color: #FF6B6B;
-    --secondary-color: #4ECDC4;
+    --secondary-color: #14cfc3;
     --bg-color: #F7F9FC;
     --accent-color: #FFD93D;
 }
@@ -177,7 +177,7 @@
 
 .youtube-channel-link {
     display: inline-block;
-    background-color: var(--primary-color);
+    background-color: #ed1f24;
     color: white;
     padding: 12px 24px;
     border-radius: 30px;

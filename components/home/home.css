@@ -53,14 +53,14 @@
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 50px;
-    background-color: var(--primary-color);
+    background-color: #ed1f24;
     color: #fff;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    min-width: 200px;
+    width: auto;
     text-align: center;
 }
 
@@ -270,7 +270,7 @@ li span {
 }
 
 #join-btn {
-    background-color: #FF6B6B;
+    background-color: #ed1f24;
     color: #FFFFFF;
     border: none;
     padding: 0.6rem 1.25rem;
@@ -362,5 +362,26 @@ li span {
     
     .mobile-video {
         display: none;
+    }
+}
+
+/* Add these new styles */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
+/* Update media query */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .button-group .new-btn {
+        width: fit-content;
+        margin: 0 auto;
     }
 }

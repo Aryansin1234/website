@@ -61,7 +61,7 @@
 }
 
 .navbar.scrolled .logo-text {
-    font-size: 0.8rem; /* Consistent text size when scrolled */
+    font-size: 0.9rem; /* Consistent text size when scrolled */
 }
 
 .navbar-logo:hover .logo-img {
@@ -91,7 +91,7 @@
 }
 
 .navbar.scrolled .nav-button {
-    color: var(--primary-color);
+    color: #ed1f24;
     background-color: transparent;
 }
 
@@ -101,14 +101,14 @@
 }
 
 .donate-btn {
-    background-color: var(--primary-color);
+    background-color: #ed1f24;
     color: white;
     box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
 }
 
 .donate-btn:hover {
     background-color: var(--hover-color);
-    color: var(--primary-color);
+    color:#ed1f24;
     box-shadow: 0 6px 8px rgba(255, 107, 107, 0.3);
 }
 
@@ -120,7 +120,7 @@
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
-    background-color: var(--primary-color);
+    background-color: #ed1f24;
     border-radius: 50%;
     box-shadow: 0 4px 6px rgba(255, 107, 107, 0.2);
     margin-left: 1rem;
@@ -323,9 +323,9 @@
 }
 
 .logo-text {
-    font-size: 0.9rem; /* Default font size for mobile */
+    font-size: 1rem; /* Default font size for mobile */
     font-weight: bold;
-    color: #FF6B6B; /* Set the text color to #FF6B6B */
+    color: #ed1f24; /* Set the text color to #FF6B6B */
     transition: all 0.3s ease;
 }
 

@@ -56,24 +56,28 @@
 }
 
 .news-card-button {
-    background-color: #FF6B6B;
+    background-color: #ed1f24;
     color: white;
     border: none;
     padding: 12px 24px; /* Increased padding */
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem; /* Increased font size */
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .news-card-button:hover {
-    background-color: #ff5252;
+    background-color: #ffffff;
+    color: #ed1f24;
+    font-weight: bold;
+
 }
 
 .news-carousel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #FF6B6B;
+    background-color: #ed1f24;
     color: white;
     border: none;
     border-radius: 50%;
@@ -86,7 +90,8 @@
 }
 
 .news-carousel-arrow:hover {
-    background-color: #ff5252;
+    background-color: #ffffff;
+    color: #ed1f24;
 }
 
 .news-carousel-arrow.left {
