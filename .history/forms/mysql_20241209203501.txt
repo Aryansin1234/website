@@ -58,6 +58,7 @@ CREATE TABLE free_passes (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     valid_until DATE NOT NULL
 );
+);
 
 -- Create the volunteers table
 CREATE TABLE volunteers (

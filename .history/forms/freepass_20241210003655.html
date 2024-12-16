@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="icon" type="image/png" href="../assets/logo.png">
 
     <style>
@@ -141,14 +140,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.5rem;
+            gap: 1rem;
             padding-bottom: 1rem;
             margin-bottom: 1.5rem;
         }
 
         .pass-logo {
-            width: 110px;
-            height: 110px;
+            width: 70px;
+            height: 70px;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
         }
@@ -156,13 +155,13 @@
         .pass-title h2 {
             font-size: 2rem;
             font-weight: 700;
-            color: #ff6b6b;
+            color: #333;
             margin: 0;
         }
 
         .pass-title p {
             font-size: 0.9rem;
-            color: #ff6b6b;
+            color: #555;
             margin: 0.3rem 0 0;
         }
 
@@ -202,18 +201,11 @@
         }
 
         .pass-footer {
-    display: flex;
-    justify-content: space-between; /* Aligns items to opposite ends */
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.footer-logo {
-    width:90px; /* Adjust size as needed */
-    height: 90px; /* Adjust size as needed */
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 1rem;
+        }
 
         .validity {
             background: linear-gradient(45deg, #ed1f24, #ff6b6b);
@@ -258,7 +250,7 @@
 
             .pass-header {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
             }
 
             .pass-title h2 {
@@ -275,14 +267,11 @@
             }
 
             .pass-footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .pass-title, .validity {
-        text-align: center;
-    }
-}
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
 
         @media (max-width: 480px) {
             .pass-title h2 {
@@ -315,9 +304,12 @@
             text-align: center;
             margin: 1.5rem 0;
             padding: 1rem;
-            font-size: 1.3rem;
+            background: linear-gradient(135deg, #ed1f24, #ff6b6b);
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.2rem;
             font-weight: 600;
-            color:#ff4b4b
         }
 
         .qr-code {
@@ -428,14 +420,12 @@
         <div class="membership-card" id="membershipCard">
             <div class="pass-content">
                 <div class="pass-header">
-                    <img src="../assets/Slogo.jpg" alt="Logo" class="pass-logo">
-
+                    <img src="../assets/secondlogo.png" alt="Logo" class="pass-logo">
                     <div class="pass-title">
                         <h2>Gurjar Mahotsav 2024</h2>
                         <p>Official Entry Pass (Valid for 1+1 person)</p>
                     </div>
-
-
+                    <img src="../assets/logo.png" alt="Second Logo" class="pass-logo">
                 </div>
                 
                 <div class="pass-details">
@@ -456,16 +446,14 @@
                         <span class="detail-value" id="cardEmail"></span>
                     </div>
                 </div>
+                
+                <div class="pass-footer">
+                    <div class="validity" id="cardValidUntil"></div>
+                </div>
 
-                <div id="qrcode" class="qr-code"></div>
                 <div class="welcome-line">
                     <p>गुर्जर महोत्सव 2024 में आपका स्वागत है</p>
                 </div>
-                <div class="pass-footer">
-                    <div class="validity" id="cardValidUntil"></div>
-                    <img src="../assets/logo.png" alt="Second Logo" class="footer-logo">
-                </div>
-
             </div>
         </div>
 
@@ -528,15 +516,6 @@
             document.getElementById('cardEmail').textContent = data.email;
             document.getElementById('cardValidUntil').textContent = 'Valid Until: ' + data.validUntil;
 
-            // Generate QR code for the pass ID
-            const qrcodeContainer = document.getElementById('qrcode');
-            qrcodeContainer.innerHTML = ''; // Clear any existing QR code
-            new QRCode(qrcodeContainer, {
-                text: data.passId,
-                width: 100,
-                height: 100
-            });
-
             // Show pass card and download button
             document.getElementById('membershipCard').style.display = 'block';
             document.querySelector('.download-wrapper').style.display = 'block';
@@ -560,7 +539,7 @@
             html2canvas(passCard, {
                 scale: 2, // Increase scale for better quality
                 useCORS: true,
-                backgroundColor: '#ffffff', // Set to null to remove background
+                backgroundColor: null, // Set to null to remove background
                 logging: false
             }).then(canvas => {
                 // Convert canvas to data URL

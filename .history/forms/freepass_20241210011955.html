@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <link rel="icon" type="image/png" href="../assets/logo.png">
 
     <style>
@@ -141,16 +140,17 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 0.5rem;
+            gap: 1rem;
             padding-bottom: 1rem;
             margin-bottom: 1.5rem;
         }
 
         .pass-logo {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            flex-shrink: 0;
         }
 
         .pass-title h2 {
@@ -202,18 +202,11 @@
         }
 
         .pass-footer {
-    display: flex;
-    justify-content: space-between; /* Aligns items to opposite ends */
-    align-items: center;
-    margin-top: 1rem;
-}
-
-.footer-logo {
-    width:90px; /* Adjust size as needed */
-    height: 90px; /* Adjust size as needed */
-    object-fit: contain;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 1rem;
+        }
 
         .validity {
             background: linear-gradient(45deg, #ed1f24, #ff6b6b);
@@ -258,7 +251,7 @@
 
             .pass-header {
                 flex-direction: column;
-                align-items: center;
+                align-items: flex-start;
             }
 
             .pass-title h2 {
@@ -275,14 +268,11 @@
             }
 
             .pass-footer {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-    .pass-title, .validity {
-        text-align: center;
-    }
-}
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
 
         @media (max-width: 480px) {
             .pass-title h2 {
@@ -317,7 +307,6 @@
             padding: 1rem;
             font-size: 1.3rem;
             font-weight: 600;
-            color:#ff4b4b
         }
 
         .qr-code {
@@ -429,13 +418,11 @@
             <div class="pass-content">
                 <div class="pass-header">
                     <img src="../assets/Slogo.jpg" alt="Logo" class="pass-logo">
-
                     <div class="pass-title">
                         <h2>Gurjar Mahotsav 2024</h2>
                         <p>Official Entry Pass (Valid for 1+1 person)</p>
                     </div>
-
-
+                    <img src="../assets/logo.png" alt="Second Logo" class="pass-logo">
                 </div>
                 
                 <div class="pass-details">
@@ -463,9 +450,7 @@
                 </div>
                 <div class="pass-footer">
                     <div class="validity" id="cardValidUntil"></div>
-                    <img src="../assets/logo.png" alt="Second Logo" class="footer-logo">
                 </div>
-
             </div>
         </div>
 
